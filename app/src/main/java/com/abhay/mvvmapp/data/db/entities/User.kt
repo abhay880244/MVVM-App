@@ -1,6 +1,7 @@
 package com.abhay.mvvmapp.data.db.entities
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 
 const val CURRENT_USER_ID: Int = 0
@@ -14,6 +15,6 @@ data class User(
     var created_at: String? = null,
     var updated_at: String? = null
 ) {
-
+    @PrimaryKey(autoGenerate = false)
     var uid: Int = CURRENT_USER_ID
 }
