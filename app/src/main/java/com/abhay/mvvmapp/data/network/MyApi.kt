@@ -1,6 +1,7 @@
 package com.abhay.mvvmapp.data.network
 
 import com.abhay.mvvmapp.data.network.responses.AuthResponse
+import com.abhay.mvvmapp.ui.auth.AuthViewModel
 import okhttp3.OkHttpClient
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -16,6 +17,15 @@ interface MyApi {
     @FormUrlEncoded
     @POST("login")
     suspend fun userLogin(
+        @Field("email") email: String,
+        @Field("password") password: String
+    ): Response<AuthResponse>
+
+
+    @FormUrlEncoded
+    @POST("signup")
+    suspend fun userSignup(
+        @Field("name") name: String,
         @Field("email") email: String,
         @Field("password") password: String
     ): Response<AuthResponse>

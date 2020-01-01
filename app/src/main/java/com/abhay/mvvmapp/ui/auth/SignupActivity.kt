@@ -4,27 +4,22 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.abhay.mvvmapp.R
-import com.abhay.mvvmapp.data.db.AppDatabase
 import com.abhay.mvvmapp.data.db.entities.User
-import com.abhay.mvvmapp.data.network.MyApi
-import com.abhay.mvvmapp.data.network.NetworkConnectionInterceptor
-import com.abhay.mvvmapp.data.repositories.UserRepository
 import com.abhay.mvvmapp.databinding.ActivityLoginBinding
+import com.abhay.mvvmapp.databinding.ActivitySignupBinding
 import com.abhay.mvvmapp.ui.home.HomeActivity
 import com.abhay.mvvmapp.util.hide
 import com.abhay.mvvmapp.util.show
 import com.abhay.mvvmapp.util.snackbar
-import com.abhay.mvvmapp.util.toast
 import kotlinx.android.synthetic.main.activity_login.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 import org.kodein.di.generic.instance
 
-class LoginActivity : AppCompatActivity(), AuthListener, KodeinAware {
+class SignupActivity : AppCompatActivity(), AuthListener, KodeinAware {
 
     override val kodein by kodein()
     private val factory: AuthViewModelFactory by instance()
@@ -32,14 +27,8 @@ class LoginActivity : AppCompatActivity(), AuthListener, KodeinAware {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//        val networkConnectionInterceptor = NetworkConnectionInterceptor(this)
-//        val api = MyApi(networkConnectionInterceptor)
-//        val db = AppDatabase(this)
-//        val repository = UserRepository(api, db)
-//        val factory = AuthViewModelFactory(repository)
-
-        val binding: ActivityLoginBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_login)
+        val binding: ActivitySignupBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_signup)
         val viewModel = ViewModelProviders.of(this, factory).get(AuthViewModel::class.java)
 
 
@@ -59,6 +48,7 @@ class LoginActivity : AppCompatActivity(), AuthListener, KodeinAware {
 
         })
     }
+
 
     override fun onStarted() {
 
