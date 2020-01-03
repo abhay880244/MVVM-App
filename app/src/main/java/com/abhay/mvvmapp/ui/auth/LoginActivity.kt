@@ -1,24 +1,18 @@
 package com.abhay.mvvmapp.ui.auth
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.abhay.mvvmapp.R
-import com.abhay.mvvmapp.data.db.AppDatabase
 import com.abhay.mvvmapp.data.db.entities.User
-import com.abhay.mvvmapp.data.network.MyApi
-import com.abhay.mvvmapp.data.network.NetworkConnectionInterceptor
-import com.abhay.mvvmapp.data.repositories.UserRepository
 import com.abhay.mvvmapp.databinding.ActivityLoginBinding
 import com.abhay.mvvmapp.ui.home.HomeActivity
 import com.abhay.mvvmapp.util.hide
 import com.abhay.mvvmapp.util.show
 import com.abhay.mvvmapp.util.snackbar
-import com.abhay.mvvmapp.util.toast
 import kotlinx.android.synthetic.main.activity_login.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein

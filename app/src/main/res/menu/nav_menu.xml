@@ -3,13 +3,18 @@
 
 
     <item
-        android:id="@+id/fragmentHome"
+        android:id="@+id/profileFragment"
         android:title="Home"></item>
 
 
     <item
-        android:id="@+id/fragmentUsers"
-        android:title="Users"></item>
+        android:id="@+id/quotesFragment"
+        android:title="Quotes"></item>
+
+
+    <item
+        android:id="@+id/loginActivity"
+        android:title="Log Out"></item>
 </menu>
 
 
