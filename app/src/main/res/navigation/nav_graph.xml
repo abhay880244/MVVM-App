@@ -9,10 +9,22 @@
         android:id="@+id/profileFragment"
         android:name="com.abhay.mvvmapp.ui.home.profile.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/profile_fragment" />
+        tools:layout="@layout/profile_fragment" >
+        <action
+            android:id="@+id/actionQuotes"
+            app:destination="@id/quotesFragment" />
+        <action
+            android:id="@+id/actionLogOut"
+            app:destination="@id/loginActivity" />
+    </fragment>
     <fragment
         android:id="@+id/quotesFragment"
         android:name="com.abhay.mvvmapp.ui.home.Quotes.QuotesFragment"
         android:label="Quotes"
         tools:layout="@layout/quotes_fragment" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.abhay.mvvmapp.ui.auth.LoginActivity"
+        android:label="LoginActivity"
+        tools:layout="@layout/activity_login"/>
 </navigation>

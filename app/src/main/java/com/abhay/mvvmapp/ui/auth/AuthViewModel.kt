@@ -3,6 +3,7 @@ package com.abhay.mvvmapp.ui.auth
 import android.content.Intent
 import android.view.View
 import androidx.lifecycle.ViewModel
+import com.abhay.mvvmapp.data.db.entities.User
 import com.abhay.mvvmapp.data.repositories.UserRepository
 import com.abhay.mvvmapp.util.ApiException
 import com.abhay.mvvmapp.util.Coroutines
@@ -22,6 +23,8 @@ class AuthViewModel(
     var authListener: AuthListener? = null
 
     fun getLoggedInUser() = repository.getUser()
+
+    suspend fun deleteUser(user: User) = repository.deleteUser(user)
 
     fun onLoginButtonClick(view: View) {
 

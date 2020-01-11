@@ -3,6 +3,7 @@ package com.abhay.mvvmapp.data.repositories
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.abhay.mvvmapp.data.db.AppDatabase
+import com.abhay.mvvmapp.data.db.entities.CURRENT_USER_ID
 import com.abhay.mvvmapp.data.db.entities.User
 import com.abhay.mvvmapp.data.network.MyApi
 import com.abhay.mvvmapp.data.network.SafeApiRequest
@@ -49,6 +50,8 @@ class UserRepository(
     }
 
     suspend fun saveUser(user: User) = db.getDao().upsert(user)
+
+    suspend fun deleteUser(user: User) = db.getDao().deleteUser(user)
 
     fun getUser() = db.getDao().getUser()
 }
